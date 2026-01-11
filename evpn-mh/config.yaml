@@ -1,0 +1,58 @@
+# topology documentation: http://containerlab.dev/lab-examples/srl-ceos/
+name: evpn-mh
+
+topology:
+  nodes:
+    R0:
+      kind: juniper_vjunosswitch 
+      image: vrnetlab/juniper_vjunos-switch:24.4R1.9 
+    R1:
+      kind: juniper_vjunosswitch 
+      image: vrnetlab/juniper_vjunos-switch:24.4R1.9 
+    R2:
+      kind: juniper_vjunosswitch 
+      image: vrnetlab/juniper_vjunos-switch:24.4R1.9
+    R3:
+      kind: juniper_vjunosswitch 
+      image: vrnetlab/juniper_vjunos-switch:24.4R1.9
+    R4:
+      kind: juniper_vjunosswitch 
+      image: vrnetlab/juniper_vjunos-switch:24.4R1.9
+    SW1:
+      kind: juniper_vjunosswitch 
+      image: vrnetlab/juniper_vjunos-switch:24.4R1.9
+    SW2:
+      kind: juniper_vjunosswitch 
+      image: vrnetlab/juniper_vjunos-switch:24.4R1.9
+    vpc1:
+      kind: linux
+      image: ubuntu:latest
+    vpc2:
+      kind: linux
+      image: ubuntu:latest
+    vpc3:
+      kind: linux
+      image: ubuntu:latest
+    vpc4:
+      kind: linux
+      image: ubuntu:latest
+    
+  links:
+    - endpoints: ["R0:ge-0/0/0","R1:ge-0/0/2" ]
+    - endpoints: ["R0:ge-0/0/1","R2:ge-0/0/2" ]    
+    - endpoints: ["R1:ge-0/0/0","R2:ge-0/0/0" ]  
+    - endpoints: ["R1:ge-0/0/1","R3:ge-0/0/1" ]
+    - endpoints: ["R2:ge-0/0/1","R4:ge-0/0/1" ] 
+    - endpoints: ["R3:ge-0/0/0","R4:ge-0/0/0" ] 
+    - endpoints: ["R3:ge-0/0/2","SW1:ge-0/0/0" ]
+    - endpoints: ["R4:ge-0/0/2","SW1:ge-0/0/1" ]
+    - endpoints: ["R3:ge-0/0/3","SW2:ge-0/0/0" ]
+    - endpoints: ["R4:ge-0/0/3","SW2:ge-0/0/1" ]
+    - endpoints: ["vpc1:eth1","SW1:ge-0/0/2" ]
+    - endpoints: ["vpc2:eth1","SW2:ge-0/0/2" ]
+    - endpoints: ["vpc3:eth1","R2:ge-0/0/5" ]
+    - endpoints: ["vpc4:eth1","R2:ge-0/0/6" ]
+
+     
+     
+     
