@@ -1,0 +1,139 @@
+{
+  "freeTextAnnotations": [],
+  "groupStyleAnnotations": [],
+  "cloudNodeAnnotations": [],
+  "nodeAnnotations": [
+    {
+      "id": "R0",
+      "icon": "router",
+      "position": {
+        "x": 147,
+        "y": 35
+      },
+      "geoCoordinates": {
+        "lat": 48.709826888402254,
+        "lng": 9.157895390625677
+      }
+    },
+    {
+      "id": "R1",
+      "icon": "router",
+      "position": {
+        "x": 63,
+        "y": 63
+      },
+      "geoCoordinates": {
+        "lat": 48.684826888402256,
+        "lng": 9.007895390625677
+      }
+    },
+    {
+      "id": "R2",
+      "icon": "router",
+      "position": {
+        "x": 231,
+        "y": 63
+      },
+      "geoCoordinates": {
+        "lat": 48.684826888402256,
+        "lng": 9.007895390625677
+      }
+    },
+    {
+      "id": "R3",
+      "icon": "router",
+      "position": {
+        "x": 63,
+        "y": 133
+      },
+      "geoCoordinates": {
+        "lat": 48.684826888402256,
+        "lng": 9.007895390625677
+      }
+    },
+    {
+      "id": "R4",
+      "icon": "router",
+      "position": {
+        "x": 231,
+        "y": 133
+      },
+      "geoCoordinates": {
+        "lat": 48.684826888402256,
+        "lng": 9.007895390625677
+      }
+    },
+    {
+      "id": "SW1",
+      "icon": "router",
+      "position": {
+        "x": 35,
+        "y": 203
+      },
+      "geoCoordinates": {
+        "lat": 48.684826888402256,
+        "lng": 9.007895390625677
+      }
+    },
+    {
+      "id": "SW2",
+      "icon": "router",
+      "position": {
+        "x": 259,
+        "y": 203
+      },
+      "geoCoordinates": {
+        "lat": 48.684826888402256,
+        "lng": 9.007895390625677
+      }
+    },
+    {
+      "id": "vpc1",
+      "icon": "router",
+      "position": {
+        "x": 7,
+        "y": 287
+      },
+      "geoCoordinates": {
+        "lat": 48.684826888402256,
+        "lng": 9.107895390625677
+      }
+    },
+    {
+      "id": "vpc2",
+      "icon": "router",
+      "position": {
+        "x": 287,
+        "y": 287
+      },
+      "geoCoordinates": {
+        "lat": 48.88482688840226,
+        "lng": 9.307895390625678
+      }
+    },
+    {
+      "id": "vpc3",
+      "icon": "router",
+      "position": {
+        "x": 399,
+        "y": 35
+      },
+      "geoCoordinates": {
+        "lat": 48.709826888402254,
+        "lng": 9.169006501736787
+      }
+    },
+    {
+      "id": "vpc4",
+      "icon": "router",
+      "position": {
+        "x": 399,
+        "y": 133
+      },
+      "geoCoordinates": {
+        "lat": 48.90982688840226,
+        "lng": 9.369006501736788
+      }
+    }
+  ]
+}

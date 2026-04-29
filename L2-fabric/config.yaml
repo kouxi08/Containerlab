@@ -1,0 +1,43 @@
+name: l2fabric
+
+topology:
+  kinds:  
+    juniper_vjunosrouter:
+      image: vrnetlab/juniper_vjunos-router:24.2R1-S2.5
+    juniper_vjunosswitch:
+      image: vrnetlab/juniper_vjunos-switch:24.4R1.9
+
+  nodes:
+    PE:
+       kind: juniper_vjunosrouter
+    R1:
+      kind: juniper_vjunosrouter
+    R2:
+      kind: juniper_vjunosrouter
+    SW1:
+      kind: juniper_vjunosswitch 
+    SW2:
+      kind: juniper_vjunosswitch 
+    SV1:
+      kind: linux
+      image: ubuntu:latest
+    SV2:
+      kind: linux
+      image: ubuntu:latest
+      
+  links:
+    - endpoints: ["PE:ge-0/0/0","R1:ge-0/0/0" ]  
+    - endpoints: ["PE:ge-0/0/1","R2:ge-0/0/0" ]
+    - endpoints: ["R1:ge-0/0/1","SW1:ge-0/0/0" ]
+    - endpoints: ["R1:ge-0/0/2","SW2:ge-0/0/0" ]
+    - endpoints: ["R2:ge-0/0/1","SW1:ge-0/0/1" ] 
+    - endpoints: ["R2:ge-0/0/2","SW2:ge-0/0/1" ] 
+    - endpoints: ["SW1:ge-0/0/2","SW2:ge-0/0/2" ] 
+    - endpoints: ["SV1:eth1","SW1:ge-0/0/3" ]
+    - endpoints: ["SV1:eth2","SW2:ge-0/0/3" ]
+    - endpoints: ["SV2:eth1","SW1:ge-0/0/4" ]
+    - endpoints: ["SV2:eth2","SW2:ge-0/0/4" ]
+
+     
+     
+     
