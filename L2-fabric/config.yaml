@@ -11,7 +11,8 @@ topology:
       exec:
         - sh -c "apt update && apt install -y iproute2 iputils-ping"
         - ip link set eth1 mtu 1500
-        - ip link set eth2 mtu 1500
+        - ip route del default 
+
 
   nodes:
     PE:
@@ -28,10 +29,12 @@ topology:
       kind: linux
       exec:
        - ip addr add 192.168.0.11/24 dev eth1
+       - ip route add default via 192.168.0.1 dev eth1
     SV2:
       kind: linux
       exec:
-       - ip addr add 192.168.0.12/24 dev eth2
+       - ip addr add 192.168.0.12/24 dev eth1
+       - ip route add default via 192.168.0.1 dev eth1
       
   links:
     - endpoints: ["PE:ge-0/0/0","R1:ge-0/0/0" ]  
@@ -42,9 +45,7 @@ topology:
     - endpoints: ["R2:ge-0/0/2","SW2:ge-0/0/1" ] 
     - endpoints: ["SW1:ge-0/0/2","SW2:ge-0/0/2" ] 
     - endpoints: ["SV1:eth1","SW1:ge-0/0/3" ]
-    - endpoints: ["SV1:eth2","SW2:ge-0/0/3" ]
-    - endpoints: ["SV2:eth1","SW1:ge-0/0/4" ]
-    - endpoints: ["SV2:eth2","SW2:ge-0/0/4" ]
+    - endpoints: ["SV2:eth1","SW2:ge-0/0/3" ]
 
      
      
