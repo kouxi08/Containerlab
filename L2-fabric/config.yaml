@@ -6,6 +6,12 @@ topology:
       image: vrnetlab/juniper_vjunos-router:24.2R1-S2.5
     juniper_vjunosswitch:
       image: vrnetlab/juniper_vjunos-switch:24.4R1.9
+    linux:
+      image: ubuntu:latest
+      exec:
+        - sh -c "apt update && apt install -y iproute2 iputils-ping"
+        - ip link set eth1 mtu 1500
+        - ip link set eth2 mtu 1500
 
   nodes:
     PE:
@@ -20,10 +26,12 @@ topology:
       kind: juniper_vjunosswitch 
     SV1:
       kind: linux
-      image: ubuntu:latest
+      exec:
+       - ip addr add 192.168.0.11/24 dev eth1
     SV2:
       kind: linux
-      image: ubuntu:latest
+      exec:
+       - ip addr add 192.168.0.12/24 dev eth2
       
   links:
     - endpoints: ["PE:ge-0/0/0","R1:ge-0/0/0" ]  
